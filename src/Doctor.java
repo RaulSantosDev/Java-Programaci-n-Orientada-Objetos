@@ -2,31 +2,21 @@ import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Doctor {
+public class Doctor extends User{
 
-    // Al hacer el atributo estático
-    private String email;
-    static int id = 0;
-    private String name;
     private String speciality;
 
-    Doctor() {
-        System.out.println("Este es mi metodo constructor");
-    }
-
-    Doctor(String name, String speciality) {
-        id++;
-        this.name = name;
+    Doctor(String name, String email) {
+        super(name, email);
         this.speciality = speciality;
     }
 
     //Comportamientos
-    public void showName () {
-        System.out.println(name);
+    public String getSpeciality(){
+        return speciality;
     }
-
-    public void showId(){
-        System.out.println("Id Doctor: " + id);
+    public void setSpeciality(){
+        this.speciality = speciality;
     }
 
     //Creamos un Arraylist que solo puede tener tipos de datos AvailableAppoitnment.
@@ -44,37 +34,13 @@ public class Doctor {
         return availableAppointments;
     }
 
-    public static class AvailableAppointment{
+    public static class AvailableAppointment {
         private int id;
         private Date date;
         private String time;
 
         public AvailableAppointment(Date date, String time) {
             this.date = date;
-            this.time = time;
-        }
-
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public Date getDate() {
-            return date;
-        }
-
-        public void setDate(Date date) {
-            this.date = date;
-        }
-
-        public String getTime() {
-            return time + "Hrs.";
-        }
-
-        public void setTime(String time) {
             this.time = time;
         }
     }
