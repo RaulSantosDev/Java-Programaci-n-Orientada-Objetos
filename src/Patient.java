@@ -38,5 +38,14 @@ public class Patient extends User{
     public void setBirthday(String birthday){
         this.birthday = birthday;
     }
+
+    //Esta es la manera de como aplicamos polimosfismo de nuevo, es decir
+    // modificamos una clase que heramos de nuestra clase padre.
+    @Override
+
+    public String toString() {
+        return super.toString() + "\nAge: " +birthday+ "\nWeigth: " +getWeigth()+
+                "\nHeight: " +getHeight()+  "\nTipo de Sangre: " + blood;
+    }
 }
 

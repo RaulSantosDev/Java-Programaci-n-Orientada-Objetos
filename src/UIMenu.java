@@ -34,6 +34,7 @@ public class UIMenu {
         } while(response !=0 );
     }
 
+    // Los métodos con con la propriedad static NO SE PUEDEN SOBREESCRIBIR.
     public static void showPatientMenu(){
         int response = 0;
         do {

@@ -11,10 +11,13 @@ public class Main {
         myDoctor.addAvailableAppointment(new Date(), "4pm");
         myDoctor.addAvailableAppointment(new Date(), "10pm");
 
-        for (Doctor.AvailableAppointment aA: myDoctor.getAvailableAppointments()) {
-            System.out.println(aA.getDate() + " " + aA.getTime());
-        }
-        
+        Patient myPatient = new Patient("Raymundo", "@gmail.con");
+        myPatient.setAddress("Calle 32");
+        myPatient.setPhoneNumber("9999999999");
+
+        System.out.println(myDoctor);
+
+
 
     }
 }

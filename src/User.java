@@ -45,4 +45,10 @@ public class User {
        }
    }
 
+   // Aquí es como aplicamos polimorfismo al metodo de la clase padre.
+    @Override
+    public String toString() {
+        return "User: " + name + ", Email: " + email +
+                ", \n Address: " + address + ", Phone Number: " + phoneNumber;
+    }
 }
