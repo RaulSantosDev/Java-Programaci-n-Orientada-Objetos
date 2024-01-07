@@ -1,9 +1,12 @@
+import model.Doctor;
+import model.Patient;
+
 import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
 
-       //UIMenu.showMenu();
+       //ui.UIMenu.showMenu();
         Doctor myDoctor = new Doctor("Raymundo","Development");
 //        System.out.println(myDoctor.name);
 //        System.out.println(myDoctor.speciality);
