@@ -1,6 +1,7 @@
 package model;
 
-public class User {
+
+public abstract class User { // Las clases abstractas no las podemos instanciar.
     private int id;
     private String name;
     private String email;
@@ -53,4 +54,7 @@ public class User {
         return "model.User: " + name + ", Email: " + email +
                 ", \n Address: " + address + ", Phone Number: " + phoneNumber;
     }
+
+   public abstract void showDataUser();
+
 }

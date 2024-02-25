@@ -1,10 +1,16 @@
 package ui;
 
+import model.Doctor;
+import model.Patient;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UIMenu {
 
     public static final String[] MONTHS = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
+    public static Doctor doctorLogged;
+    public static Patient patientLogged;
 
     // Cuando a un metodo le asignamos la propiedad static es porque necesitamos llamarlo en main pero sin la necesidad de hacer una instancia de este.
     public static void showMenu(){
@@ -21,11 +27,12 @@ public class UIMenu {
             response = Integer.valueOf(sc.nextLine());
             switch(response){
                 case 1:
-                    System.out.println("model.Doctor");
+                    System.out.println("Doctor");
+                    authUser(1);
+                    response = 0;
                     break;
                 case 2:
-                    response = 0;
-                    showPatientMenu();
+                    authUser(2);
                     break;
                 case 0:
                     System.out.println("Thank you for you visit");
@@ -34,6 +41,48 @@ public class UIMenu {
                     System.out.println("Please select a correct answer");
             }
         } while(response !=0 );
+    }
+
+    private static void authUser(int userType){
+        //userType = 1 = Doctor
+        //userType = 2 = Patient
+        ArrayList<Doctor> doctors = new ArrayList<>();
+        doctors.add(new Doctor("Santos Raul", "Pacheco@gmail.com"));
+        doctors.add(new Doctor("Karen Sosa", "Sosa@gmail.com"));
+        doctors.add(new Doctor("Rocío Gomez", "Gomez@gmail.com"));
+
+        ArrayList<Patient> patients = new ArrayList<>();
+        patients.add(new Patient("Raul Santos", "Santos@gmail.com"));
+        patients.add(new Patient("Lu Ojeda", "Ojeda@gmail.com"));
+        patients.add(new Patient("Glo OJeda", "glo@gmail.com"));
+
+        //Validando el email.
+        boolean emailCorrect = false;
+        do {
+            System.out.println("Insert your email: [a@a.com]");
+            Scanner sc = new Scanner(System.in);
+            String email = sc.nextLine();
+            if(userType == 1) {
+                for(Doctor d: doctors){
+                  if(d.getEmail().equals(email)){
+                      emailCorrect = true;
+                      //Obtener el usuario Loguedo
+                      doctorLogged = d;
+                      //ShowDoctorMenu
+                  }
+                }
+            }
+            if(userType == 2) {
+                for(Patient p: patients){
+                    if(p.getEmail().equals(email)){
+                        emailCorrect = true;
+                        patientLogged = p;
+                        //ShowPatientMenu
+                    }
+                }
+            }
+        } while (!emailCorrect);
+
     }
 
     // Los métodos con con la propriedad static NO SE PUEDEN SOBREESCRIBIR.
