@@ -23,7 +23,7 @@ public class Doctor extends User{
     }
 
     //Creamos un Arraylist que solo puede tener tipos de datos AvailableAppoitnment.
-    ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
+    private ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
 
     // Creamos el método que recibirá como parámetros la fecha y la hora.
     public void addAvailableAppointment(String date, String time) {
@@ -73,7 +73,11 @@ public class Doctor extends User{
             this.id = id;
         }
 
-        public String getDate(String date) {
+        public Date getDate(String DATE){
+            return date;
+        }
+
+        public String getDate() {
             return format.format(date);
         }
 
