@@ -1,7 +1,8 @@
 package model;
 
 
-public abstract class User { // Las clases abstractas no las podemos instanciar.
+public abstract class User {
+    // Las clases abstractas no las podemos instanciar.
     private int id;
     private String name;
     private String email;

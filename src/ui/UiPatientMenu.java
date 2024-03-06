@@ -1,20 +1,17 @@
 package ui;
 import model.Doctor;
-
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
 public class UiPatientMenu {
-
     public static void showPatientMenu() {
         int response = 0;
         do {
-            System.out.println("\n\n");
+            System.out.println("\n");
             System.out.println("Patient");
-            System.out.println("Welcome: " + UIMenu.patientLogged);
-
+            System.out.println("Welcome: " + UIMenu.patientLogged.getName());
             System.out.println("1. Book an appointment");
             System.out.println("2. My appointments");
             System.out.println("0. Logout");
@@ -27,12 +24,12 @@ public class UiPatientMenu {
                     showBookAppointmentMenu();
                     break;
                 case 2:
+                    showPatientMyAppointments();
                     break;
                 case 0:
                     UIMenu.showMenu();
                     break;
             }
-
         } while(response!=0);
     }
 
@@ -45,7 +42,7 @@ public class UiPatientMenu {
             //Numeración de la lista de fechas.
             //Indice de la fecha seleccionada.
             // [dotors]
-            // 1.- doctor1
+            // 1.- Doctor1
                 // 1.- Fecha1
                 // 2.- Fecha2
             // 2.- Doctor 2
@@ -61,11 +58,8 @@ public class UiPatientMenu {
                     k++;
                     System.out.println(k + ". " + availableAppointments.get(j).getDate());
                     doctorAppointmets.put(Integer.valueOf(j), UIDoctorMenu.doctorsAvailableAppointments.get(i));
-
-
                     doctors.put(Integer.valueOf(k), doctorAppointmets);
                 }
-
             }
 
             Scanner sc = new Scanner(System.in);
@@ -76,7 +70,6 @@ public class UiPatientMenu {
             for (Map.Entry<Integer, Doctor> doc :doctorAvailableSelected.entrySet()){
                 indexDate = doc.getKey();
                 doctorSelected = doc.getValue();
-
             }
 
             System.out.println(doctorSelected.getName() +
@@ -91,10 +84,6 @@ public class UiPatientMenu {
                         doctorSelected, doctorSelected.getAvailableAppointments().get(indexDate).getDate(null), doctorSelected.getAvailableAppointments().get(indexDate).getTime());
                 showPatientMenu();
             }
-
-
-
-
         }while (response != 0);
     }
 
@@ -114,9 +103,7 @@ public class UiPatientMenu {
                         "\n Doctor: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getDoctor().getName()
                         );
             }
-
             System.out.println("0. Return");
         } while (response != 0);
-
     }
 }

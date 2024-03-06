@@ -27,11 +27,9 @@ public class UIDoctorMenu {
                 case 2:
                     break;
                 case 0:
-                   // UIMenu.showMenu();
-                    break;
+                   UIMenu.showMenu();
                 default:
                     System.out.println("Ingresa un valor correcto");
-
             }
         } while (response !=0);
     }
@@ -75,7 +73,6 @@ public class UIDoctorMenu {
 
                 UIMenu.doctorLogged.addAvailableAppointment(date,time);
                 checkDoctorAvailableAppointments(UIMenu.doctorLogged);
-
 
             }else if (response == 0){
                 showDoctorMenu();

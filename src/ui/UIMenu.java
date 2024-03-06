@@ -12,7 +12,7 @@ public class UIMenu {
     public static Doctor doctorLogged;
     public static Patient patientLogged;
 
-    // Cuando a un metodo le asignamos la propiedad static es porque necesitamos llamarlo en main pero sin la necesidad de hacer una instancia de este.
+    // Cuando a un metodo le asignamos la propiedad static podemos llamarlo en el main sin la necesidad de hacer una instancia de este.
     public static void showMenu(){
         System.out.println("Welcome to My Appoinments");
         System.out.println("Selecciona la opción deseada");
@@ -78,11 +78,11 @@ public class UIMenu {
                         emailCorrect = true;
                         patientLogged = p;
                         //ShowPatientMenu
+                        UiPatientMenu.showPatientMenu();
                     }
                 }
             }
         } while (!emailCorrect);
-
     }
 
     // Los métodos con con la propriedad static NO SE PUEDEN SOBREESCRIBIR.
@@ -112,9 +112,6 @@ public class UIMenu {
                     showMenu();
                     break;
             }
-
         }while(response != 0);
-
     }
-
 }

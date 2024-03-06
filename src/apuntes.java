@@ -1,6 +1,6 @@
 public @interface apuntes {
     /*
-        Esto es todo lo que contenía nuestro método main.
+        Esto es todo lo que contenía nuestro método main en el momento que hacíamos los pruebas creando el proyecto.
 
         //Aquí vamos a hacer un hack para que podamos instaciar una clase abstracta
         User user1 = new User("doctor", "ajksdfhjkahd@gndjk.xo0n") {
